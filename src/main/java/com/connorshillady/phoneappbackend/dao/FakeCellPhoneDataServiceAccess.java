@@ -34,7 +34,8 @@ public class FakeCellPhoneDataServiceAccess implements CellPhoneDAO {
     if (cellOptional.isEmpty()) {
       return 0;
     }
-    return 0;
+    cellPhones.remove(cellOptional.get());
+    return 1;
   }
   @Override
   public List<CellPhone> queryCellPhones() {
@@ -42,6 +43,6 @@ public class FakeCellPhoneDataServiceAccess implements CellPhoneDAO {
   }
   @Override
   public Optional<CellPhone> queryCellPhone(int PhoneId) {
-    return Optional.empty();
+    return cellPhones.stream().filter(cellPhone -> cellPhone.getPhoneId() == PhoneId).findFirst();
   }
 }

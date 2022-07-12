@@ -8,7 +8,7 @@ import java.util.Random;
 public interface CellPhoneDAO {
   default int insertCellPhone(CellPhone cellPhone) {
     Random random = new Random();
-    int id = random.nextInt(0, 10000000);
+    int id = random.nextInt(100000, 10000000);
     return insertCellPhone(id, cellPhone);
   }
   int insertCellPhone(int PhoneId, CellPhone cellPhone);

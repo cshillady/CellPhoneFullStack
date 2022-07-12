@@ -3,6 +3,7 @@ package com.connorshillady.phoneappbackend.service;
 import com.connorshillady.phoneappbackend.dao.CellPhoneDAO;
 import com.connorshillady.phoneappbackend.model.CellPhone;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +13,7 @@ public class CellPhoneService {
   private final CellPhoneDAO cellPhoneDAO;
   
   @Autowired
-  public CellPhoneService(CellPhoneDAO cellPhoneDAO) {
+  public CellPhoneService(@Qualifier("CellPhoneRepository") CellPhoneDAO cellPhoneDAO) {
     this.cellPhoneDAO = cellPhoneDAO;
   }
   
